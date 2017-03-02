@@ -12,6 +12,8 @@
 # misc
 .DS_Store
 .env
+.eslintrc.json
+.vscode
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
