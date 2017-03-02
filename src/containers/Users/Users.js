@@ -1,6 +1,21 @@
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { UserList } from '../../components';
 import { callGetUsers } from '../../redux/modules/users';
+
+class Users extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    userList: PropTypes.array.isRequired
+  }
+  constructor(props) {
+    super(props);
+    props.dispatch(callGetUsers());
+  }
+  render() {
+    return <UserList userList={this.props.userList} />;
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -9,17 +24,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getUsers: () => {
-      dispatch(callGetUsers());
-    }
-  };
-};
-
-const Users = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UserList);
-
-export default Users;
+export default connect(mapStateToProps)(Users);

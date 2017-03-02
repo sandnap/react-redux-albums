@@ -1,25 +1,21 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import './UserList.css';
 
-class UserList extends Component {
-  static propTypes = {
-    userList: PropTypes.array.isRequired,
-    getUsers: PropTypes.func.isRequired
-  }
-  constructor(props) {
-    super(props);
-    this.props.getUsers();
-  }
-  user() {
-    return this.props.userList.map((user) => <li key={user.id}>{user.name}</li>);
-  }
-  render() {
-    return (
-      <ul className="UserList">
-        {this.user()}
-      </ul>
-    );
-  }
-}
+const UserList = function (props) {
+  const user = () => {
+    return props.userList.map((usr) => {
+      return <li key={usr.id}>{usr.name}</li>;
+    });
+  };
+  return (
+    <ul className="UserList">
+      {user()}
+    </ul>
+  );
+};
+
+UserList.propTypes = {
+  userList: PropTypes.array.isRequired
+};
 
 export default UserList;
