@@ -1,4 +1,4 @@
-#### An app I originally wrote while learning React and Redux and the best libraries, tools, and practices at the time.
+# React Redux Albums
 
 ## Installation
 To install and run the application simply clone or download the project and in a terminal window run:
@@ -12,6 +12,8 @@ Followed by:
 $ npm start
 ```
 ## Motivation, Libraries, & Tools
+
+I wrote this application to demonstrate how to build a scalable React/Redux architecture using some of the most popular libraries and best practices.
 
 Since the focus of this application is the frontend I chose to use the free public API at http://jsonplaceholder.typicode.com for the backend services. This is a basic CRUD application tracking users, albums (photo), and photos.
 
