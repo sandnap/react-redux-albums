@@ -1,16 +1,19 @@
 import { connect } from 'react-redux';
 import { UserList } from '../../components';
+import { callGetUsers } from '../../redux/modules/users';
 
 const mapStateToProps = (state) => {
   return {
-    userList: state.userList,
+    userList: state.users.userList || [],
     userFilter: state.form.userFilter
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleFilter: (form) => dispatch()
+    getUsers: () => {
+      dispatch(callGetUsers());
+    }
   };
 };
 
