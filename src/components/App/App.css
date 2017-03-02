@@ -14,8 +14,16 @@
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.App-links {
+  margin-top: 15px;
+}
+
+.App-links a {
+  margin: 0 10px;
+}
+
+.App-content {
+  margin-top: 15px;
 }
 
 @keyframes App-logo-spin {
