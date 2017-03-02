@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react';
 import './UserList.css';
 
 const UserList = function (props) {
-  const user = () => {
-    return props.userList.map((usr) => {
-      return <li key={usr.id}>{usr.name}</li>;
+  const users = () => {
+    return props.userList.map((user) => {
+      return <li key={user.id}>{user.name}</li>;
     });
   };
   return (
     <ul className="UserList">
-      {user()}
+      {users()}
     </ul>
   );
 };
