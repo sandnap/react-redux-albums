@@ -24,6 +24,13 @@
 
 .App-content {
   margin-top: 15px;
+  width: 100%;
+}
+
+.App-content .wrapper {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @keyframes App-logo-spin {
