@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
-import { Users } from '../../containers';
+import { Users, User } from '../../containers';
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +20,7 @@ class App extends Component {
           <div className="wrapper">
             <Route exact path="/" />
             <Route exact path="/users" component={Users} />
+            <Route exact path="/users/:id" component={User} />
           </div>
         </div>
       </div>

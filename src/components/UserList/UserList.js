@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router-dom';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import './UserList.css';
 
 const UserList = function (props) {
-  const cellClicked = (data) => {
-    console.log(props.userList[data].id);
-  };
   const address = (addr) => {
     return (
       <div className="address">
@@ -18,9 +16,8 @@ const UserList = function (props) {
   const users = () => {
     return props.userList.map((user) => {
       return (
-        <TableRow key={user.id} selectable={true}>
-          <TableRowColumn>{user.id}</TableRowColumn>
-          <TableRowColumn>{user.name}</TableRowColumn>
+        <TableRow key={user.id} selectable={false}>
+          <TableRowColumn><Link to={`/users/${user.id}`}>{user.name}</Link></TableRowColumn>
           <TableRowColumn>{user.email}</TableRowColumn>
           <TableRowColumn>{address(user.address)}</TableRowColumn>
         </TableRow>
@@ -29,10 +26,9 @@ const UserList = function (props) {
   };
   return (
     <div className="UserList">
-      <Table onCellClick={cellClicked}>
+      <Table>
         <TableHeader displaySelectAll={false}>
           <TableRow>
-            <TableHeaderColumn>ID</TableHeaderColumn>
             <TableHeaderColumn>Name</TableHeaderColumn>
             <TableHeaderColumn>Email</TableHeaderColumn>
             <TableHeaderColumn>Address</TableHeaderColumn>
