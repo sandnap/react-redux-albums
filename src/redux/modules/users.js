@@ -5,10 +5,27 @@ export const STORE_USER = 'STORE_USER';
 export default function reducer(state = {}, action = {}) {
   switch (action.type) {
   case GET_USERS:
-    return Object.assign({}, state, { userList: action.userList });
+    // Since our test API doesn't store data we will manipulate it in memory after the inital load
+    if (!state.userList) {
+      return Object.assign({}, state, { userList: action.userList });
+    }
+    return state;
   case GET_USER:
-    return Object.assign({}, state, { user: action.user });
+    // Pull the user from the userList if it already exists otherwise use the newly loaded user
+    // Again because our test API doesn't store values
+    let user = action.user;
+    if (state.userList) {
+      user = state.userList.find(nUser => nUser.id === action.user.id);
+    }
+    return Object.assign({}, state, { user: user });
   case STORE_USER:
+    // Replace the user in the user list if it exists
+    // Again because our test API doesn't store values
+    if (action.user && state.userList) {
+      const newList = [ ...state.userList ];
+      newList[newList.findIndex(fUser => fUser.id === action.user.id)] = action.user;
+      return Object.assign({}, state, { user: null, userList: newList });
+    }
     return Object.assign({}, state, { user: null });
   default:
     return state;
