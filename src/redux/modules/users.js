@@ -2,6 +2,11 @@ const GET_USERS = 'GET_USERS';
 const GET_USER = 'GET_USER';
 export const STORE_USER = 'STORE_USER';
 
+/*
+  NOTE: These reduces have been modified because our test API doesn't really store the values in their database
+  though the calls are actually made and the response is accurate. For this API I am just manipulating the data
+  in memory. You can remove the conditional logic in each reducer to work with a real API.
+*/
 export default function reducer(state = {}, action = {}) {
   switch (action.type) {
   case GET_USERS:
