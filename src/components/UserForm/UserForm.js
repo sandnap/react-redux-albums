@@ -12,6 +12,10 @@ let UserForm = function (props) {
       <form onSubmit={props.handleSubmit}>
         <Field name="name" component={TextField} fullWidth={true} floatingLabelText="Name" hintText="Name"/>
         <Field name="email" component={TextField} fullWidth={true} floatingLabelText="Email address" hintText="Email address"/>
+        <Field name="address.street" component={TextField} fullWidth={true} floatingLabelText="Street" hintText="Street"/>
+        <Field name="address.suite" component={TextField} fullWidth={true} floatingLabelText="Suite" hintText="Suite"/>
+        <Field name="address.city" component={TextField} fullWidth={true} floatingLabelText="City" hintText="City"/>
+        <Field name="address.zipcode" component={TextField} fullWidth={true} floatingLabelText="Zip code" hintText="Zip code"/>
         <RaisedButton type="submit" label="Save" primary={true} fullWidth={true} disabled={submitting} style={{marginTop: '15px'}} />
       </form>
     </section>
